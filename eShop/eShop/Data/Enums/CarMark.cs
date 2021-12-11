@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace eShop.Data
+{
+    public enum CarMark
+    {
+        Abarth = 1,
+        Acura,
+        Audi,
+        Bentley,
+        BMW,
+        Buick,
+        Cadilac,
+        Chevrolet,
+        Chrystler,
+        Citroen,
+        Dacia,
+        Dodge,
+        Ferrari,
+        Fiat,
+        Ford,
+        GMC,
+        Hodna,
+        Hummer,
+        Hyundai,
+        Infinity,
+        Isuzu,
+        Jaguar,
+        Jeep,
+        Kia,
+        Lamborgini,
+        Lancia,
+        Lexus,
+        Lincoln,
+        Lotus,
+        Maseratim,
+        Mazda,
+        Mercedes,
+        Mercury,
+        Mini,
+        Mitsubishi,
+        Nissan,
+        Opel,
+        Peugeot,
+        Pontiac,
+        Porsche,
+        Ram,
+        Renault,
+        Saab,
+        Saturn,
+        Scion,
+        Seat,
+        Skoda,
+        Smart,
+        SsangYong,
+        Subaru,
+        Suzuki,
+        Tesla,
+        Toyota,
+        Volkswagen,
+        Volvo,
+        Wiesmann
+    }
+}

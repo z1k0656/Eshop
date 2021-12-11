@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using eShop.Areas.Identity.Data
+
+@inject SignInManager<eShopUser> SignInManager
+@inject UserManager<eShopUser> UserManager
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-controller="Cars" asp-action="Index">Buy Car </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">|</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-controller="Sellers" asp-action="Index">People Who Sell</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" asp-controller="Cars" asp-action="Filter" style="padding-right: 25px;">
+            <input name="searchString" type="text" class="form-control" placeholder="Search for a Car...">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+        <li class="nav-item" style="float:right; list-style-type: none;">
+            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserName(User)!</a>
+        </li>
+        <li class="nav-item" style="float:right; list-style-type: none;">
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Cars", new { area = "" })">
+                <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
