@@ -417,3 +417,4 @@ C:\Users\ziyaa\Desktop\eShop\eShop\obj\Debug\net5.0\eShop.dll
 C:\Users\ziyaa\Desktop\eShop\eShop\obj\Debug\net5.0\ref\eShop.dll
 C:\Users\ziyaa\Desktop\eShop\eShop\obj\Debug\net5.0\eShop.pdb
 C:\Users\ziyaa\Desktop\eShop\eShop\obj\Debug\net5.0\eShop.genruntimeconfig.cache
+C:\Users\ziyaa\Desktop\CarEshop\careshop\eShop\eShop\obj\Debug\net5.0\Razor\Views\Cars\Edit.cshtml.g.cs

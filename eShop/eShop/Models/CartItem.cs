@@ -7,6 +7,10 @@ namespace eShop.Models
 {
     public class CartItem
     {
-        public Car Car { get; set;}
+        public int CarId { get; set; }
+        public string Model { get; set; }
+        public int Quantity { get; set; }
+        public double Price { get; set; }
+        public double Total { get;set; }
     }
 }

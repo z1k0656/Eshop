@@ -31,30 +31,19 @@ namespace eShop.Data
             }
 
             //Adding Admin User
-            /*var user = new eShopUser();
+            var user = new eShopUser();
             user.FirstName = "admin";
             user.LastName = "admin";
-            user.UserName = "admin";
+            user.UserName = "admin@gmail.com";
             user.Email = "admin@gmail.com";
             string userPWD = "123456Ab+";
 
             IdentityResult chkUser = await UserManager.CreateAsync(user, userPWD);
             if (!await UserManager.IsInRoleAsync(user, "Admin"))
             {
-                var userResult = UserManager.AddToRoleAsync(user, "Admin");
+                await UserManager.SetLockoutEnabledAsync(user, false);
+                await UserManager.AddToRoleAsync(user, "Admin");
             }
-            if (chkUser.Succeeded)
-            {
-                if (!await UserManager.IsInRoleAsync(user, "Admin"))
-                {
-                    var userResult = UserManager.AddToRoleAsync(user, "Admin");
-                }
-            else
-                {
-                    var errors = chkUser.Errors;
-                    var message = string.Join(", ", errors);
-                }
-            }*/
         }
             public static void Seed(IApplicationBuilder applicationBuilder)
             {

@@ -16,6 +16,7 @@ namespace eShop.Controllers
 {
     public class CarsController : Controller
     {
+        static Seller seller;
 
         private readonly ICarsServices _service;
 
@@ -32,16 +33,15 @@ namespace eShop.Controllers
         //this method is now working yet because i dont know how to use Sessions in mvc .....
         public async Task<IActionResult> AddToCart(int Id)
         {
-            var cart = new List<CartItem>();
+            CartItem cart = new CartItem();
 
             var carDetails = await _service.GetByIdAsync(Id);
             if (carDetails == null)
                 return View("NotFound");
 
-            cart.Add(new CartItem()
-            {
-                Car = carDetails
-            });
+
+            carDetails.Model = cart.Model;
+            carDetails.Price = cart.Price;
             return View();
         }
 
@@ -65,7 +65,6 @@ namespace eShop.Controllers
         public async Task<IActionResult> Details(int id)
         {
             var carDetails = await _service.GetByIdAsync(id);
-
             if (carDetails == null)
                 return View("NotFound");
 
@@ -76,19 +75,20 @@ namespace eShop.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var carDetails = await _service.GetByIdAsync(id);
-
+            seller = carDetails.Seller;
             if (carDetails == null)
                 return View("NotFound");
 
             return View(carDetails);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FullName, ProfilePictureURL,Bio")] Car car)
+        public async Task<IActionResult> Edit(int id, [Bind("CarId, Model, Price, Description, ImageURL, StartDate, EndDate, CarMark")] Car car)
         {
             if (!ModelState.IsValid)
             {
                 return View(car);
             }
+            car.SellerId = seller.SellerId;
             await _service.UpdateAsync(id, car);
             return RedirectToAction(nameof(Index));
         }
